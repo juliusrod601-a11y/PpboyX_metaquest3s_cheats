@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10091f">
+<title>PPBOYX Wrist Studio Downloader</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0713;--panel:#171022;--purple:#a855f7;--text:#f8f5ff;--muted:#c4b5d7}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at top,#321454 0%,var(--bg) 65%);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text)}
+main{width:min(100%,560px);padding:clamp(22px,5vw,38px);border:1px solid #59327c;border-radius:24px;background:linear-gradient(145deg,#1b1229ee,#100b19f5);box-shadow:0 0 40px #a855f72a}
+.brand{font-size:12px;letter-spacing:3px;color:#d8b4fe;font-weight:800}
+h1{font-size:clamp(27px,6vw,42px);line-height:1.08;margin:12px 0}
+p{color:var(--muted);line-height:1.6}
+.file{display:flex;align-items:center;gap:14px;padding:16px;margin:24px 0;border:1px solid #453052;border-radius:16px;background:#ffffff06}
+.file-icon{font-size:30px}
+.filename{font-weight:750;overflow-wrap:anywhere}
+.small{font-size:13px;color:#bcaacb}
+button{width:100%;border:0;border-radius:14px;padding:16px 18px;font-size:16px;font-weight:800;color:white;background:linear-gradient(100deg,#7c3aed,#c026d3);cursor:pointer;box-shadow:0 8px 28px #a855f744}
+button:focus-visible{outline:3px solid white;outline-offset:3px}
+button:hover{filter:brightness(1.1)}
+.note{font-size:12px;margin-top:18px}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">PPBOYX • WRIST STUDIO</div>
+  <h1>Download your<br>starter ZIP</h1>
+  <p>Tap the button below to download the Unity/VRChat wrist GUI starter package. Your browser may ask you to confirm or choose where to save it.</p>
+  <div class="file">
+    <div class="file-icon">📦</div>
+    <div>
+      <div class="filename">PPBOYX_WristStudio_Starter.zip</div>
+      <div class="small">ZIP archive · Unity starter scripts and setup notes</div>
+    </div>
+  </div>
+  <button id="download">Download ZIP</button>
+  <p class="note">This HTML contains the ZIP inside it, so the download button still works when the HTML is hosted by itself. The ZIP is a starter package, not a finished or tested VRChat world.</p>
+</main>
+<script>
+const archiveBase64 = "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";
+document.getElementById("download").addEventListener("click", () => {
+  const raw = atob(archiveBase64);
+  const bytes = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+  const blob = new Blob([bytes], {type: "application/zip"});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "PPBOYX_WristStudio_Starter.zip";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+});
+</script>
+</body>
+</html>
